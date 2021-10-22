@@ -1,0 +1,18 @@
+
+___x_cmd_config_tab(){
+    # 1. search the path that contains
+    # 2. search the
+    awk -f "$(xrc which tab/tab.awk)" "$@"
+}
+
+___x_cmd_config_tab_where(){
+    local path="
+/etc/fstab
+
+"
+}
+
+
+___x_cmd_config_tab_cat(){
+    awk -f "$(xrc which tab/tab.awk)" "$@"
+}

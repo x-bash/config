@@ -1,0 +1,33 @@
+
+xrc param/v0
+
+xrc config/tab
+
+___x_cmd_config(){
+    param <<A
+subcommands:
+    tab                     "file system mount table"
+    ssh                     "ssh client config"
+    sshd                    "ssh server config"
+A
+
+    if [ -z "$PARAM_SUBCMD" ]; then
+        "___x_cmd_config_$PARAM_SUBCMD" "$@"
+        return
+    fi
+
+    ___x_cmd_auto "$@"
+
+}
+
+___x_cmd_auto(){
+    local file="$1"
+    case "$1" in
+        *fstab|*mtab)       ___x_cmd_config tab "$1" ;;
+        *ssh_config)        ___x_cmd_config ssh_config "$1" ;;
+    esac
+}
+
+
+
+
