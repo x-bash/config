@@ -49,9 +49,9 @@ function fsck(bit){
     # gsub(/^\s+/, "", $3)
 
     printf("\033[32;1m")
-    printf("%-15s  %-10s", $1, $3) 
+    printf("%-15s  %-10s", $1, $3)
     printf("%s", "\033[34m")
-    printf("%-30s", $2 "\033[0m") 
+    printf("%-30s", $2 "\033[0m")
     printf("%s\n", dump($5) "\t" fsck($6))
     printf("\033[;2m")
 
